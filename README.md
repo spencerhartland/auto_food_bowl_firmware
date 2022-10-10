@@ -9,12 +9,11 @@ This repository contains the firmware for a Raspberry-Pi-powered automatic pet f
 Below is a detailed discussion on each module in the firmware:
 
 ### Server (server/server.py)
-A BARE-bones (seriously, just the bare minimum functionality) web server that listens for a GET request at the endpoint `/dispense`. Hitting the endpoint activates the stepper motor to dispense food on demand.
+Basic web server utilizing socket networking. Listens for requests on the local network that enable features like on-demand feeding and rich customization. This is the back bone of the iOS companion app. Code is a mess right now, I'm working on that!
 
 #### Next Steps
-- Add ability to adjust dispense time using query parameters.
-- Add ability to change preferences using query parameters.
-- Implement an endpoint that returns satus info, including food level.
+- Add endpoints for adjusting feed schedule and getting food storage level.
+- Clean up code and add documentation.
 
 ### Displays (displays/oled.py)
 The two OLEDs are connected to the Pi via Adafruit's TCA9548A I^2^C Multiplexer.As such, the driver makes use of Adafruit's libraries for both the TCA9548A and the displays themselves (SSD1306). This driver provides functionality for both the food level and the status display.
